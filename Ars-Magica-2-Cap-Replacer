@@ -1,0 +1,41 @@
+function getBlock()
+  if turtle.getItemCount(1) == 1 then
+    return 1
+  else
+    return 2
+  end
+end
+
+function dayTime(block)
+  if block == 2 then
+    turtle.digDown()
+    turtle.select(1)
+    turtle.placeDown()
+  end
+  print("Daytime")
+end
+
+function nightTime(block)
+  if block == 1 then
+    turtle.digDown()
+    turtle.select(2)
+    turtle.placeDown()
+  end
+  print("NightTime")
+end
+
+while true do
+time = os.time()
+block = getBlock()
+print(time)
+
+if time > 7 and time < 20 then
+  dayTime(block)
+else
+  nightTime(block)
+end
+
+  
+
+sleep(.1)
+end
